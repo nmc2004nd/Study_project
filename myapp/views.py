@@ -9,7 +9,8 @@ from .models import Subject, Lesson, Assignment, Reference
 
 from django.shortcuts import get_object_or_404
 
-
+# Nên dùng khi giao tiếp ngoài 
+# Viết độc lập các API endpoint
 # @api_view(['POST'])
 # def register_user(request):
 #     serializer = UserRegistrationSerializer(data=request.data)
@@ -22,6 +23,8 @@ from django.shortcuts import get_object_or_404
 #         )
 #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+# Nên dùng trong giao tiếp nội bộ
 class UserRegistrationView(APIView):
     
     def post(self, request):
