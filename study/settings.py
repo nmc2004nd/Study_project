@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',  # Thêm ứng dụng của bạn vào đây
-    'rest_framework',  # Thêm Django REST framework nếu cần
+    'myapp',  # 
+    'rest_framework',  # Django REST framework 
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -109,6 +110,16 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),   # access token tồn tại 1 ngày
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # refresh token tồn tại 7 ngày
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
 
 
 # Internationalization
